@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMG Churrasco - Buffet de Churrasco</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff3e0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffa726;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            background-color: #fb8c00;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ffb74d;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            /* Centraliza as imagens horizontalmente */
+        }
+
+        .gallery .image-container {
+            width: 300px;
+            height: 200px;
+            /* Define uma altura consistente para todas as imagens */
+            overflow: hidden;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Mantém a proporção da imagem */
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .contact-info,
+        .budget-form {
+            background-color: #ffc400;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .budget-form input[type="submit"] {
+            background-color: #fb8c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .budget-form input[type="submit"]:hover {
+            background-color: #ffa726;
+        }
+
+        footer {
+            background-color: #f57905;
+            color: rgb(211, 177, 177);
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Estilos para o modal de imagem */
+        .modal {
+            display: none;
+            /* Esconde o modal por padrão */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 80%;
+        }
+
+        .close,
+        .prev,
+        .next {
+            color: #fff;
+            position: absolute;
+            font-size: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close {
+            top: 15px;
+            right: 35px;
+        }
+
+        .prev {
+            top: 50%;
+            left: 35px;
+            transform: translateY(-50%);
+        }
+
+        .next {
+            top: 50%;
+            right: 35px;
+            transform: translateY(-50%);
+        }
+
+        .close:hover,
+        .close:focus,
+        .prev:hover,
+        .prev:focus,
+        .next:hover,
+        .next:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>FMG Churrasco</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#gallery">Galeria</a>
+        <a href="#contact">Contato</a>
+        <a href="#budget">Orçamento</a>
+    </nav>
+    <section id="home">
+        <h2>Bem-vindo!</h2>
+        <p>Descubra a excelência em churrascos para todos os momentos especiais. No FMG Churrasco, não apenas preparamos carne, nós criamos memórias. Com uma equipe apaixonada pela arte do churrasco, garantimos uma experiência gastronômica que supera expectativas. Desde eventos corporativos até celebrações pessoais, cada churrasco é cuidadosamente planejado e executado para proporcionar sabor autêntico e momentos memoráveis. Explore nossos serviços e deixe-nos transformar seu próximo evento em uma festa inesquecível.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>Galeria</h2>
+        <div class="gallery">
+            <!-- Substitua os caminhos das imagens pelos caminhos reais das suas imagens -->
+            <div class="image-container">
+                <img src="imagens/churrasco1.png" alt="Churrasco 1" onclick="expandirImagem(this)">
+            </div>
+            <div class="image-container">
+                <img src="imagens/churrasco2.png" alt="Churrasco 2" onclick="expandirImagem(this)">
+            </div>
+            <div class="image-container">
+
+                <img src="imagens/churrasco3.png" alt="Churrasco 3" onclick="expandirImagem(this)">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contato</h2>
+        <div class="contact-info">
+            <p>Telefone: (21) 99592-1862</p>
+            <p>Email: fmgchurrasco@gmail.com</p>
+        </div>
+    </section>
+
+    <section id="budget">
+        <h2>Orçamento</h2>
+        <div class="budget-form">
+            <form>
+                <label for="name">Nome:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="phone">Telefone:</label><br>
+                <input type="text" id="phone" name="phone" required><br>
+                <label for="event">Tipo de Evento:</label><br>
+                <input type="text" id="event" name="event" required><br>
+                <label for="message">Detalhes:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Buffet de Churrasco</p>
+    </footer>
+
+    <!-- Modal para exibição da imagem ampliada -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <img class="modal-content" id="imgModal">
+        <span class="prev" onclick="imagemAnterior()">&lt;</span>
+        <span class="next" onclick="proximaImagem()">&gt;</span>
+    </div>
+
+    <script>
+        let imagens = document.querySelectorAll('.gallery img');
+        let modal = document.getElementById("myModal");
+        let modalImg = document.getElementById("imgModal");
+        let imagemAtualIndex;
+
+        function expandirImagem(imgElement) {
+            imagemAtualIndex = Array.from(imagens).indexOf(imgElement);
+            modal.style.display = "flex";
+            modalImg.src = imgElement.src;
+        }
+
+        function fecharModal() {
+            modal.style.display = "none";
+        }
+
+        function proximaImagem() {
+            imagemAtualIndex = (imagemAtualIndex + 1) % imagens.length;
+            modalImg.src = imagens[imagemAtualIndex].src;
+        }
+
+        function imagemAnterior() {
+            imagemAtualIndex = (imagemAtualIndex - 1 + imagens.length) % imagens.length;
+            modalImg.src = imagens[imagemAtualIndex].src;
+        }
+    </script>
+</body>
+
+</html>
