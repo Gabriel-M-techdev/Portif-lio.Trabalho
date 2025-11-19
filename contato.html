@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Contato | Gabriel Macedo</title>
+    <link rel="stylesheet" href="cssstyle.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Gabriel Macedo</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre Mim</a></li>
+                    <li><a href="projetos.html">Portfólio</a></li>
+                    <li><a href="contato.html" class="active">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="formulario-contato">
+                <h2>Entre em Contato</h2>
+                <p>Se você tem um projeto ou deseja trocar ideias sobre desenvolvimento web e SEO, envie-me uma mensagem!</p>
+
+                <form action="#" method="POST">
+
+                    <div class="form-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assunto">Assunto:</label>
+                        <input type="text" id="assunto" name="assunto" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </section>
+
+            <section id="alternativas-contato">
+                <h3>Outras Formas de Contato</h3>
+                <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/SeuNome</a></p>
+                <p>E-mail direto: <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a></p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Gabriel Macedo . Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
